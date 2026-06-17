@@ -1,0 +1,39 @@
+# Cloudflare Pages reads this file from the deployed output root.
+# Note: 300s = 5min; 3600s = 1hr; 86400s = 1 day; 2592000s = 1 month; 31536000s = 1 year.
+
+/*
+  Cache-Control: public, max-age=300, s-maxage=3600
+
+# do not cache index-like files
+
+/
+  ! Cache-Control
+  Cache-Control: public, no-cache, proxy-revalidate
+
+/index.html
+  ! Cache-Control
+  Cache-Control: public, no-cache, proxy-revalidate
+
+/atom.xml
+  ! Cache-Control
+  Cache-Control: public, no-cache, proxy-revalidate
+
+/sitemap.xml
+  ! Cache-Control
+  Cache-Control: public, no-cache, proxy-revalidate
+
+# posts are less frequently changed
+
+/posts/*.html
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+# static files aggressive cache
+
+/files/*
+  ! Cache-Control
+  Cache-Control: public, max-age=2592000, immutable
+
+/favicon.ico
+  ! Cache-Control
+  Cache-Control: public, max-age=2592000, immutable
