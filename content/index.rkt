@@ -18,12 +18,14 @@
   (list
     (out-file-from-xml
       (render-html-page s title '()
-        (list
-          `(div
-             (h1 ,title)
-             (ul ([class "post-list"])
-                 ;; posts are already sorted newest-first by build-site
-                 ,@(map post-list-item (site-posts s))))))
+                        (list
+                          `(div
+                             (div ([class "index-header"])
+                                  (h1 ,title)
+                                  (a ([class "feed-link"] [href "/atom.xml"]) "atom feed"))
+                             (ul ([class "post-list"])
+                                 ;; posts are already sorted newest-first by build-site
+                                 ,@(map post-list-item (site-posts s))))))
       (string->path "index.html"))))
 
 (provide generate-index)

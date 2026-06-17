@@ -22,6 +22,7 @@ h3 {
     line-height: 1.2;
 }
 
+
 .date {
     margin-top: -0.5em;
     color: #666;
@@ -33,6 +34,23 @@ blockquote {
     padding: 0.2em 1em;
     border-left: 3px solid #ccc;
     color: #666;
+}
+
+/* index header */
+
+.index-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5em;
+}
+
+.index-header h1 {
+    margin-bottom: 0.4em;
+}
+
+.feed-link {
+    flex: 0 0 auto;
+    font-size: 0.85em;
 }
 
 /* nav bar */
