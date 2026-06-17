@@ -1,0 +1,30 @@
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: Bogdanp/setup-racket@v1.15
+        with:
+          architecture: x64
+          distribution: full
+          variant: "CS"
+          version: "current"
+      - name: Installing ycao-net and its dependencies
+        run: raco pkg install --no-docs --auto --name ycao-net
+      - name: Build Site
+        run: racket main.rkt
+      - name: Deploy to CF Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./dist --project-name=ycao-net-rkt
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+  
