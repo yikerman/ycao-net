@@ -20,6 +20,22 @@ jobs:
         run: raco pkg install --no-docs --auto --name ycao-net
       - name: Build Site
         run: racket main.rkt
+      - name: Minify generated web assets
+        run: |
+          go install github.com/tdewolff/minify/v2/cmd/minify@latest
+          "$(go env GOPATH)/bin/minify" --recursive --inplace dist \
+            --match '*.html' \
+            --match '*.css' \
+            --match '*.js' \
+            --match '*.json' \
+            --match '*.svg' \
+            --match '*.xml'
+
+          sudo apt-get update
+          sudo apt-get install -y jpegoptim optipng
+          find dist -type f -iname '*.png' -exec optipng -quiet -o2 {} +
+          find dist -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) \
+            -exec jpegoptim --strip-all --all-progressive {} +
       - name: Deploy to CF Pages
         uses: cloudflare/wrangler-action@v3
         with:
@@ -27,4 +43,3 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy ./dist --project-name=ycao-net-rkt
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-  

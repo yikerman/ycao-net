@@ -14,7 +14,7 @@
       `(article
          (h1 "About")
          (h2 "Sugar makes me happy")
-         (p "I'm Yi, a University of California Irvine student hacking around.")
+         (p "I'm Yi Cao (pronounced E Tsao), a University of California Irvine student hacking around.")
          (h2 "Find me")
          (ul
            (li "Mail: " (a ([href "mailto:yi@ycao.net"]) "yi@ycao.net")
