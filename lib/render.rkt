@@ -159,7 +159,7 @@
 ;; wraps a list of body elements in a full HTML document; extra-head is
 ;; spliced into <head>
 (define (embed-base-html title extra-head body-elements)
-  `(html
+  `(html ([lang "en"])
      (head
        (meta ([charset "utf-8"]))
        (meta ([name "viewport"] [content "width=device-width, initial-scale=1"]))
@@ -178,7 +178,8 @@
 ;; a full HTML page: head + site nav + the given body elements
 (define (render-html-page s title extra-head body-elements)
   (embed-base-html title extra-head
-                   (cons (render-nav (nav-entries s)) body-elements)))
+                   (list (render-nav (nav-entries s))
+                         `(main ([id "main"]) ,@body-elements))))
 
 ;; a full HTML page for an article; info must carry the resolved 'references
 ;; (added by the collect pass in lib/site.rkt)

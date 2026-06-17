@@ -24,7 +24,7 @@ h3 {
 
 .date {
     margin-top: -0.5em;
-    color: #888;
+    color: #666;
     font-size: 0.85em;
 }
 
@@ -59,7 +59,7 @@ blockquote {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
+    color: #666;
 }
 
 /* image */
@@ -78,7 +78,7 @@ figure img {
 
 figcaption {
     text-align: center;
-    color: #888;
+    color: #666;
     font-size: 0.85em;
 }
 

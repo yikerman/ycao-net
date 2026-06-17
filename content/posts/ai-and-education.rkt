@@ -3,9 +3,14 @@
 (require ycao-net/lib/markup)
 
 (define post-ai-and-education
-  @article["AI and (Math) Education" "2026-06-16"]{
+  @article["LLM and (Math) Education" "2026-06-16"]{
+    @para{@it{
+        Abstract: This article empirically asserts a lower bound of human effort required
+        to learn a mathematical (or any other abstraction-heavy subject) regardless of LLM.
+    }}
+
     @para{
-        WIP
+      TODO
     }
   })
 
