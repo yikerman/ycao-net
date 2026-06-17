@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-llm-agi
+(define post
   @article["LLM will NEVER be AGI: The Proof" "2024-08-20"]{
     @para{
       The proof is trivial with a little help of a necessary condition of
@@ -33,4 +33,4 @@
     }
   })
 
-(provide post-llm-agi)
+(provide post)

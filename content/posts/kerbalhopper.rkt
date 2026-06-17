@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-kerbalhopper
+(define post
   @article["Kerbalhopper: PID explained with KSP" "2023-04-30"]{
     @heading["introduction"]{Introduction}
     @para{
@@ -316,4 +316,4 @@ if __name__ == "__main__":
     }
   })
 
-(provide post-kerbalhopper)
+(provide post)

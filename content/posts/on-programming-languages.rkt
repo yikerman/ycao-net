@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-on-programming-languages
+(define post
   @article["On Programming Languages" "2024-05-01"]{
     @para{
       While it is true that most of the time while developing software, we just
@@ -141,4 +141,4 @@
     }
   })
 
-(provide post-on-programming-languages)
+(provide post)

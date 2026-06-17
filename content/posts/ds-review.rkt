@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-ds-review
+(define post
   @article["《死亡搁浅》玩后感及艺术评论思考" "2025-11-15"]{
     @para{
       今日通关了《死亡搁浅》，不得不提，在游玩时我本以为这是后疫情作品在反思疫情隔离，没想到实际上游戏刚好于19年发售，真是巧合。
@@ -21,4 +21,4 @@
     }
   })
 
-(provide post-ds-review)
+(provide post)

@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-an-introduction-to-lambda-calculus
+(define post
   @article["An Introduction to Lambda Calculus" "2023-02-09"]{
     @heading["introduction"]{Introduction}
     @para{
@@ -257,4 +257,4 @@ two('s')('z')
     @para{Good luck and have fun!}
   })
 
-(provide post-an-introduction-to-lambda-calculus)
+(provide post)

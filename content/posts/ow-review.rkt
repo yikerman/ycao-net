@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-ow-review
+(define post
   @article["《星际拓荒》玩后感" "2025-09-02"]{
     @blockquote{
         以下内容包含对Outer Wilds剧情的剧透。
@@ -27,4 +27,4 @@
     }
   })
 
-(provide post-ow-review)
+(provide post)

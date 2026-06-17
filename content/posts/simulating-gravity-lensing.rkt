@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-simulating-gravity-lensing
+(define post
   @article["Simulating Gravitational Lensing" "2023-09-03"]{
     @para{
       Ever wondered why the
@@ -86,4 +86,4 @@
     @xml|{<video width="480" height="270" controls><source src="/files/20230903/bh.mp4" type="video/mp4"></video>}|
   })
 
-(provide post-simulating-gravity-lensing)
+(provide post)

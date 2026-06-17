@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-visit-goddard
+(define post
   @article["Visiting NASA Goddard Space Flight Center" "2023-08-01"]{
     @para{
       I have visited NASA Goddard Space Flight Center on August 1st, 2023. It's
@@ -37,4 +37,4 @@
     @img["/files/20230801/shake.jpg"]{Vibration Table}
   })
 
-(provide post-visit-goddard)
+(provide post)

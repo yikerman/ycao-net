@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-math-education-llm
+(define post
   @article["Math Education, and LLM" "2026-06-16"]{
     @para{@it{
         Abstract: This article defines math and math education, and argues for a lower bound of 
@@ -85,4 +85,4 @@
     }
   })
 
-(provide post-math-education-llm)
+(provide post)

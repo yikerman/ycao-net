@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-invent-wheels-with-autotools-c
+(define post
   @article["Invent wheels with Autotools & C" "2020-08-08"]{
     @para{
       This how-to guide will teach you how to invent wheels with Autotools & C.
@@ -342,4 +342,4 @@ make
     }
   })
 
-(provide post-invent-wheels-with-autotools-c)
+(provide post)

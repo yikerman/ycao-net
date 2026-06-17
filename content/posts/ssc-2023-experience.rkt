@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-ssc-2023-experience
+(define post
   @article["My 2023 Swift Student Challenge" "2023-05-17"]{
     @para{
       Ah, Swift Student Challenge, the once in a year competition from our
@@ -145,4 +145,4 @@ func iterate(_ transforms: [CGAffineTransform]) {
     }
   })
 
-(provide post-ssc-2023-experience)
+(provide post)

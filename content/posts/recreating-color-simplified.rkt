@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-recreating-color-simplified
+(define post
   @article["Color Recreation from First Principles" "2025-12-07"]{
     @para{
       @it{Abstract: This article provides a gentle derivation showing the
@@ -118,4 +118,4 @@ S
     }
   })
 
-(provide post-recreating-color-simplified)
+(provide post)

@@ -2,7 +2,7 @@
 
 (require ycao-net/lib/markup)
 
-(define post-asus-ux5406-review
+(define post
   @article["Review on ASUS Zenbook S14 Laptop (LNL) with Linux" "2025-05-02"]{
     @para{
       I am trying to pick a laptop that is as close to Macbook Mx Airs as
@@ -72,4 +72,4 @@
     }
   })
 
-(provide post-asus-ux5406-review)
+(provide post)
