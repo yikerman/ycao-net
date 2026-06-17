@@ -14,7 +14,7 @@
          "posts/ds-review.rkt"
          "posts/recreating-color-simplified.rkt"
          "posts/llm-after-three-years.rkt"
-         "posts/ai-and-education.rkt"
+         "posts/math-education-llm.rkt"
          ycao-net/lib/output
          ycao-net/lib/render
          ycao-net/lib/site)
@@ -36,7 +36,7 @@
         (cons "ds-review" post-ds-review)
         (cons "recreating-color-simplified" post-recreating-color-simplified)
         (cons "llm-after-three-years" post-llm-after-three-years)
-        (cons "ai-and-education" post-ai-and-education)
+        (cons "math-education-llm" post-math-education-llm)
         ))
 
 (define (generate-post-pages s)

@@ -23,6 +23,9 @@
         ("kosmynaYourBrainChatGPT2025" . "N. Kosmyna et al., “Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task,” Dec. 31, 2025, arXiv: arXiv:2506.08872. doi: 10.48550/arXiv.2506.08872.")
         ("dawidIntroductionLatentVariable2024" . "A. Dawid and Y. LeCun, “Introduction to latent variable energy-based models: a path toward autonomous machine intelligence,” J. Stat. Mech., vol. 2024, no. 10, p. 104011, Oct. 2024, doi: 10.1088/1742-5468/ad292b.")
         ("shumailovAIModelsCollapse2024" . "I. Shumailov, Z. Shumaylov, Y. Zhao, N. Papernot, R. Anderson, and Y. Gal, “AI models collapse when trained on recursively generated data,” Nature, vol. 631, no. 8022, pp. 755–759, Jul. 2024, doi: 10.1038/s41586-024-07566-y.")
+        ("budneyWhatsMathematician2010" . "W. Thurston, “What’s a mathematician to do?,” MathOverflow. Accessed: May 11, 2026. [Online]. Available: https://mathoverflow.net/q/43690")
+        ("slameckaGenerationEffect1978" . "N. J. Slamecka and P. Graf, “The generation effect: Delineation of a phenomenon,” Journal of Experimental Psychology: Human Learning and Memory, vol. 4, no. 6, pp. 592–604, 1978, doi: 10.1037/0278-7393.4.6.592.")
+        ("taoThereMoreMathematics2026" . "T. Tao, “There’s more to mathematics than rigour and proofs.” Accessed: Jun. 17, 2026. [Online]. Available: https://terrytao.wordpress.com/career-advice/theres-more-to-mathematics-than-rigour-and-proofs/")
         ))
 
 (provide bib-db)
