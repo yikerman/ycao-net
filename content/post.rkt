@@ -10,9 +10,11 @@
          "posts/on-programming-languages.rkt"
          "posts/llm-agi.rkt"
          "posts/asus-ux5406-review.rkt"
+         "posts/ow-review.rkt"
          "posts/ds-review.rkt"
          "posts/recreating-color-simplified.rkt"
          "posts/llm-after-three-years.rkt"
+         "posts/ai-and-education.rkt"
          ycao-net/lib/output
          ycao-net/lib/render
          ycao-net/lib/site)
@@ -30,9 +32,12 @@
         (cons "on-programming-languages" post-on-programming-languages)
         (cons "llm-agi" post-llm-agi)
         (cons "asus-ux5406-review" post-asus-ux5406-review)
+        (cons "ow-review" post-ow-review)
         (cons "ds-review" post-ds-review)
         (cons "recreating-color-simplified" post-recreating-color-simplified)
-        (cons "llm-after-three-years" post-llm-after-three-years)))
+        (cons "llm-after-three-years" post-llm-after-three-years)
+        (cons "ai-and-education" post-ai-and-education)
+        ))
 
 (define (generate-post-pages s)
   (map (λ (p)

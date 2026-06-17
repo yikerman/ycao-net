@@ -9,6 +9,13 @@ body {
     padding: 0 10px;
 }
 
+@media (max-width: 600px) {
+    body {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+}
+
 h1,
 h2,
 h3 {

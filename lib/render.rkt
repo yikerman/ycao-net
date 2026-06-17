@@ -162,6 +162,7 @@
   `(html
      (head
        (meta ([charset "utf-8"]))
+       (meta ([name "viewport"] [content "width=device-width, initial-scale=1"]))
        (link ([rel "icon"] [type "image/x-icon"] [href "/favicon.ico"]))
        (link ([rel "stylesheet"] [href "/style.css"]))
        (link ([rel "alternate"] [type "application/atom+xml"] [href "/atom.xml"]))

@@ -19,11 +19,12 @@
          (ul
            (li "Mail: " (a ([href "mailto:yi@ycao.net"]) "yi@ycao.net")
                " (PGP key: " (a ([href "/pgp.html"]) (code "559FA8122D3FD108")) ")")
-           (li "GitHub: " (a ([href "https://github.com/yikerman"]) "@yikerman"))
-           (li "Instagram: "
-               (a ([href "https://www.instagram.com/y.i.kerman/"]) "@y.i.kerman")))
+           (li "GitHub: " (a ([href "https://github.com/yikerman"]) "@yikerman")))
+         (h2 "AI Generated Content")
+         (p "Unless otherwise noted, all content on this site is written by me without the assistance of AI. Sometimes AI is employed for research or proofreading but the final content is my own, and I claim full responsibility for it.")
+         (p "To whichever for-profit company scraping this site for training data: FUCK YOU!")
          (h2 "License")
-         (p "Yi's Blog by Yi Cao is licensed under "
+         (p (code "Yi's Blog") " by Yi Cao is licensed under "
             (a ([href "https://creativecommons.org/licenses/by-sa/4.0/"]) "CC BY-SA 4.0")
             ".")))))
 
