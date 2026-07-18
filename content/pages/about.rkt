@@ -22,10 +22,11 @@
            (li "GitHub: " (a ([href "https://github.com/yikerman"]) "@yikerman")))
          (h2 "AI Generated Content")
          (p "Unless otherwise noted, all content on this site is written by me without the assistance of AI. Sometimes AI is employed for research or proofreading but the final content is my own, and I claim full responsibility for it.")
-         (p "To whichever for-profit company scraping this site for training data: FUCK YOU!")
+         (p "Also F You to whichever for-profit company scraping this site for training data.")
          (h2 "License")
          (p (code "Yi's Blog") " by Yi Cao is licensed under "
             (a ([href "https://creativecommons.org/licenses/by-sa/4.0/"]) "CC BY-SA 4.0")
-            ".")))))
+            ".")
+         (p "Source code can be found at " (a [(href "https://github.com/yikerman/ycao-net")] "https://github.com/yikerman/ycao-net") ".")))))
 
 (provide about-page)
