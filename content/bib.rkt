@@ -26,6 +26,8 @@
         ("budneyWhatsMathematician2010" . "W. Thurston, “What’s a mathematician to do?,” MathOverflow. Accessed: May 11, 2026. [Online]. Available: https://mathoverflow.net/q/43690")
         ("slameckaGenerationEffect1978" . "N. J. Slamecka and P. Graf, “The generation effect: Delineation of a phenomenon,” Journal of Experimental Psychology: Human Learning and Memory, vol. 4, no. 6, pp. 592–604, 1978, doi: 10.1037/0278-7393.4.6.592.")
         ("taoThereMoreMathematics2026" . "T. Tao, “There’s more to mathematics than rigour and proofs.” Accessed: Jun. 17, 2026. [Online]. Available: https://terrytao.wordpress.com/career-advice/theres-more-to-mathematics-than-rigour-and-proofs/")
+        ("michaelLateChunking2025" . "Günther, Michael, Isabelle Mohr, Daniel James Williams, Bo Wang, and Han Xiao. “Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models.” arXiv:2409.04701. Preprint, arXiv, July 7, 2025. https://doi.org/10.48550/arXiv.2409.04701.")
+
         ))
 
 (provide bib-db)
