@@ -112,7 +112,7 @@
       (@link["http://archive.today/2026.08.03-115240/https://semsearch.blog/?q=the+camera+I+kept+for+years&lang=en"]{archived})
       introduced me to Henry's Canon PowerShot A510 and the beautiful pictures taken with it.}
       @item{For @link["https://semsearch.blog/?q=working+remotely+made+me+lonely&lang=en"]{working remotely made me lonely}
-      (@link["http://archive.today/2026.08.03-115755/https://semsearch.blog/?q=working+remotely+made+me+lonely&lang=en"]{archived})
+      (@link["http://archive.today/2026.08.03-115755/https://semsearch.blog/?q=working+remotely+made+me+lonely&lang=en"]{archived}),
       I expected to find some COVID-19-era blogs, but was surprised to find Jasdev Singh's 2015 writing
       at the top.}
       @item{@link["https://semsearch.blog/?q=why+you+should+use+Linux+Desktop&lang=en"]{why you should use Linux Desktop}
