@@ -89,6 +89,7 @@ figure {
 
 figure img {
     display: block;
+    width: 90%;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
