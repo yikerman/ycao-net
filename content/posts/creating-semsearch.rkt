@@ -7,7 +7,8 @@
     @para{
       TL;DR: Semsearch is an embedding-based search engine whose corpus is bootstrapped from 
       @link["https://indieblog.page/faq#data"]{indieblog.page's blog list}. It aims to make indie
-      blogs more discoverable. At the time of writing, the live instance is up at @link["https://semsearch.blog"]{semsearch.blog}
+      blogs more discoverable. Results are ranked by semantic relevance alone, without link popularity
+      or SEO-derived signals. At the time of writing, the live instance is up at @link["https://semsearch.blog"]{semsearch.blog}
       with @link["https://archive.today/2026.07.29-180627/https://semsearch.blog/status"]{roughly 6,000 unique blog sites, 154k pages, and 1.4B tokens}.
       The source code is at @link["https://github.com/yikerman/semantic-search"]{github.com/yikerman/semantic-search}.
     }
