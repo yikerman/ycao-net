@@ -3,7 +3,7 @@
 (require ycao-net/lib/markup)
 
 (define post
-  @article["《星际拓荒》玩后感" "2025-09-02"]{
+  @article["《星际拓荒》玩后感" "2025-09-02" #:lang "zh"]{
     @blockquote{
         以下内容包含对Outer Wilds剧情的剧透。
     }

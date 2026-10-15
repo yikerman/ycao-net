@@ -11,7 +11,8 @@
   (define art (site-post-art p))
   `(li (span ([class "date"]) ,(article-date art))
        " "
-       (a ([href ,(post-rel-url p)]) ,(article-title art))))
+       (a ([href ,(post-rel-url p)]) ,(article-title art))
+       ,@(post-tr-link p)))
 
 (define (generate-index s)
   (define title (site-config-title (site-cfg s)))

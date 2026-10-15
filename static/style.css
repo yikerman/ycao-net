@@ -36,6 +36,20 @@ blockquote {
     color: #666;
 }
 
+/* translation */
+
+.lang-link {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.tr-notice {
+    padding: 0.5em 1em;
+    border-left: 3px solid #c90;
+    background: #fff8e1;
+    font-size: 0.85em;
+}
+
 /* index header */
 
 .index-header {

@@ -36,7 +36,7 @@
   (or (para? x) (heading? x) (code-block? x) (math-block? x) (disp-math? x)
       (img? x) (quote-block? x) (list-block? x) (raw-html? x)))
 
-(struct article (title date body) #:transparent)
+(struct article (title date lang body) #:transparent) ; lang is "en" or "zh"
 
 (define (cite-key->anchor-id key)
   (format "cite-~a" key))

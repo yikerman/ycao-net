@@ -15,10 +15,12 @@
   (filter (λ (x) (not (string? x))) items))
 
 ;; the post root: title, date, then block content (whitespace between blocks
-;; is dropped; stray text is an error)
+;; is dropped; stray text is an error). #:lang is "en" (default) or "zh".
 ;; @article["My Post" "2024-05-01"]{ @heading["a"]{A} @para{Hi.} }
-(define (article title date . body)
-  (ast:article title date
+(define (article title date #:lang [lang "en"] . body)
+  (unless (member lang '("en" "zh"))
+    (error 'article "unsupported #:lang: ~s" lang))
+  (ast:article title date lang
                (for/list ([b (in-list body)]
                           #:unless (and (string? b) (regexp-match? #px"^\\s*$" b)))
                  (if (string? b)

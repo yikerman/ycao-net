@@ -25,7 +25,7 @@
      (output-dir (string->path dir))])
 
   ;; collect pass
-  (define the-site (build-site config all-posts standalone-pages bib-db))
+  (define the-site (build-site config all-posts all-translations standalone-pages bib-db))
 
   (define generators
     (list generate-static

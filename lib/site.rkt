@@ -16,9 +16,14 @@
 ;; base-url: absolute, no trailing slash
 (struct site-config (base-url title author) #:transparent)
 
-;; one collected post: slug, AST, the analysis computed once in build-site, and
-;; its reference list: (key . formatted-text) pairs ordered by cite number
-(struct site-post (slug art info refs) #:transparent)
+;; one collected post: slug, AST, the analysis computed once in build-site,
+;; its reference list ((key . formatted-text) pairs ordered by cite number),
+;; and its site-translation or #f
+(struct site-post (slug art info refs tr) #:transparent)
+
+;; an LLM translation of a post into its other language. Not a post: it is
+;; reachable only through site-post-tr, so nothing iterating posts sees it.
+(struct site-translation (art info refs) #:transparent)
 
 ;; an authored non-post page (e.g. About): linkable metadata + body xexprs.
 ;; date may be #f (no sitemap lastmod). body is a list of xexprs (the page
@@ -44,13 +49,31 @@
           (hash-ref bib key
                     (λ () (error 'build-site "cites missing bib key: ~s" key))))))
 
-;; analyze + resolve every post body once, then sort newest-first
-(define (build-site cfg posts standalone bib)
+;; analyze an article body, then resolve its citations
+(define (compile-article art bib)
+  (define info (analyze default-analyses (article-body art)))
+  (values info (resolve-references info bib)))
+
+(define (collect-translation slug art tr-art bib)
+  (when (equal? (article-lang tr-art) (article-lang art))
+    (error 'build-site "translation of ~s is in the post's own language" slug))
+  (define-values (info refs) (compile-article tr-art bib))
+  (site-translation tr-art info refs))
+
+;; analyze + resolve every post (and its translation) once, then sort
+;; newest-first. translations are (slug . article) pairs keyed by their post.
+(define (build-site cfg posts translations standalone bib)
+  (for ([t (in-list translations)]
+        #:unless (assoc (car t) posts))
+    (error 'build-site "translation has no post: ~s" (car t)))
   (define collected
     (for/list ([p (in-list posts)])
+      (define slug (car p))
       (define art (cdr p))
-      (define info (analyze default-analyses (article-body art)))
-      (site-post (car p) art info (resolve-references info bib))))
+      (define-values (info refs) (compile-article art bib))
+      (define tr (assoc slug translations))
+      (site-post slug art info refs
+                 (and tr (collect-translation slug art (cdr tr) bib)))))
   (define newest-first
     (sort collected
           (λ (a b)
@@ -69,6 +92,15 @@
 ;; derived from post-dest-path, so a post's file and its URL can never drift
 (define (post-rel-url p)
   (dest-path->url (post-dest-path p)))
+
+;; a post's translation lives under it: posts/<slug>/<lang>.html
+(define (translation-dest-path p)
+  (string->path (format "posts/~a/~a.html"
+                        (site-post-slug p)
+                        (article-lang (site-translation-art (site-post-tr p))))))
+
+(define (translation-rel-url p)
+  (dest-path->url (translation-dest-path p)))
 
 (define (page-abs-url s rel)
   (string-append (site-config-base-url (site-cfg s)) rel))
@@ -107,15 +139,20 @@
 
 (provide (struct-out site-config)
          (struct-out site-post)
+         (struct-out site-translation)
          (struct-out standalone-page)
          (struct-out page)
          (struct-out site)
          (contract-out
-           [build-site (-> site-config? (listof (cons/c string? article?))
+           [build-site (-> site-config?
+                           (listof (cons/c string? article?))
+                           (listof (cons/c string? article?))
                            (listof standalone-page?) hash? site?)]
            [dest-path->url (-> path? string?)]
            [post-dest-path (-> site-post? path?)]
            [post-rel-url (-> site-post? string?)]
+           [translation-dest-path (-> (and/c site-post? site-post-tr) path?)]
+           [translation-rel-url (-> (and/c site-post? site-post-tr) string?)]
            [page-abs-url (-> site? string? string?)]
            [post-abs-url (-> site? site-post? string?)]
            [post->page (-> site-post? page?)]

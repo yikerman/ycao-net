@@ -3,7 +3,7 @@
 (require ycao-net/lib/markup)
 
 (define post
-  @article["三年LLM：过去和未来" "2026-03-27"]{
+  @article["三年LLM：过去和未来" "2026-03-27" #:lang "zh"]{
     @para{
       OpenAI的ChatGPT于2022年年底发布。得益于境外手机号接码渠道，我第一时间就用上并惊叹于人工智能的突破。一转眼，LLM在过去的三年里已无可辩驳地渗透至千家万户。
     }
