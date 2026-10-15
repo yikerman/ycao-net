@@ -16,8 +16,9 @@
 ;; base-url: absolute, no trailing slash
 (struct site-config (base-url title author) #:transparent)
 
-;; one collected post: slug, AST, and the analysis computed once in build-site
-(struct site-post (slug art info) #:transparent)
+;; one collected post: slug, AST, the analysis computed once in build-site, and
+;; its reference list: (key . formatted-text) pairs ordered by cite number
+(struct site-post (slug art info refs) #:transparent)
 
 ;; an authored non-post page (e.g. About): linkable metadata + body xexprs.
 ;; date may be #f (no sitemap lastmod). body is a list of xexprs (the page
@@ -33,26 +34,23 @@
 ;;; collect pass
 
 ;; resolve doc-local citations against the global bib (the "linker" step):
-;; produce the reference list ordered by cite number, stored under 'references.
+;; produce the reference list ordered by cite number.
 ;; This is the natural place to fail fast on a missing bib key.
 (define (resolve-references info bib)
-  (define cite-numbers (doc-ref info 'cite-numbers))
-  (define refs
-    (for/list ([entry (in-list (sort (hash->list cite-numbers)
-                                     (λ (a b) (< (cdr a) (cdr b)))))])
-      (define key (car entry))
-      (cons key
-            (hash-ref bib key
-                      (λ () (error 'build-site "cites missing bib key: ~s" key))))))
-  (hash-set info 'references refs))
+  (for/list ([entry (in-list (sort (hash->list (doc-ref info 'cite-numbers))
+                                   < #:key cdr))])
+    (define key (car entry))
+    (cons key
+          (hash-ref bib key
+                    (λ () (error 'build-site "cites missing bib key: ~s" key))))))
 
 ;; analyze + resolve every post body once, then sort newest-first
 (define (build-site cfg posts standalone bib)
   (define collected
     (for/list ([p (in-list posts)])
-      (define info
-        (resolve-references (analyze default-analyses (article-body (cdr p))) bib))
-      (site-post (car p) (cdr p) info)))
+      (define art (cdr p))
+      (define info (analyze default-analyses (article-body art)))
+      (site-post (car p) art info (resolve-references info bib))))
   (define newest-first
     (sort collected
           (λ (a b)

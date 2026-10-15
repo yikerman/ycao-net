@@ -1,17 +1,14 @@
 #lang racket/base
 
-;;;; Rendering an analyzed document to HTML XExprs.
+;;;; Rendering an analyzed document AST to HTML xexprs.
 ;;;;
-;;;; Tiers:
-;;;;   render-article-body : (info, AST) -> xexprs : handles local elements
-;;;;   render-html-page / render-page / render-standalone-page
-;;;;        : appends site-aware chrome (head + site nav + body)
+;;;; Handles only the document's own elements; it knows nothing about the site.
+;;;; Page chrome (head, nav, toc, references) lives in lib/layout.rkt.
 
 (require racket/contract
          xml
          "document.rkt"
-         "analyze.rkt"
-         "site.rkt")
+         "analyze.rkt")
 
 ;;; dispatch utils
 
@@ -63,7 +60,7 @@
 (define eqref-renderer
   (renderer eqref?
             (λ (n rc)
-              (define by-label (cdr (doc-ref (render-ctx-info rc) 'eq-numbers)))
+              (define by-label (eq-table-by-label (doc-ref (render-ctx-info rc) 'eq-numbers)))
               `(a ([href ,(eq-label->anchor-str (eqref-label n))])
                   ,(format "(~a)" (hash-ref by-label (eqref-label n)))))))
 
@@ -79,7 +76,7 @@
 (define math-block-renderer
   (renderer math-block?
             (λ (n rc)
-              (define num (hash-ref (car (doc-ref (render-ctx-info rc) 'eq-numbers)) n))
+              (define num (hash-ref (eq-table-by-node (doc-ref (render-ctx-info rc) 'eq-numbers)) n))
               (define label (math-block-label n))
               `(div ([class "equation"] ,@(if label `([id ,(eq-label->anchor-id label)]) '()))
                     ,(format "\\[~a\\]" (math-block-tex n))
@@ -128,105 +125,16 @@
         disp-math-renderer img-renderer quote-block-renderer list-block-renderer
         raw-html-renderer))
 
-;;; metadata + AST -> xexprs (used by the Atom feed and by render-page)
+;;; entry points: doc-info + AST nodes -> xexprs
+
+;; a document body (used by the Atom feed and by the post layout)
 (define (render-article-body info blocks)
   (render* (render-ctx html-renderers info) blocks))
 
-;;; HTML document chrome
-
-;; head entries for the features the analyzed document actually uses
-(define mathjax-head
-  '((script ([id "MathJax-script"]
-             [async "async"]
-             [src "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"]))))
-
-(define highlightjs-head
-  ;; NOTE: add extra highlightjs PL support here
-  (let ([extra-langs '("scheme")])
-    `((link ([rel "stylesheet"]
-             [href "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/default.min.css"]))
-      (script ([src "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"]))
-      ,@(map (λ (lang)
-               `(script ([src ,(format "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/~a.min.js" lang)])))
-             extra-langs)
-      (script "document.addEventListener('DOMContentLoaded', function () { hljs.highlightAll(); });"))))
-
-;; extract extra elements that goes to <head>
-(define (doc-info->extra-head info)
-  (append (if (doc-ref info 'has-math?) mathjax-head '())
-          (if (doc-ref info 'has-code?) highlightjs-head '())))
-
-;; wraps a list of body elements in a full HTML document; extra-head is
-;; spliced into <head>
-(define (embed-base-html title extra-head body-elements)
-  `(html ([lang "en"])
-     (head
-       (meta ([charset "utf-8"]))
-       (meta ([name "viewport"] [content "width=device-width, initial-scale=1"]))
-       (link ([rel "icon"] [type "image/x-icon"] [href "/favicon.ico"]))
-       (link ([rel "stylesheet"] [href "/style.css"]))
-       (link ([rel "alternate"] [type "application/atom+xml"] [href "/atom.xml"]))
-       ,@extra-head
-       (title ,title))
-     (body ,@body-elements)))
-
-;; the site nav shown on every page
-(define (render-nav entries)
-  `(nav ([class "site-nav"])
-        ,@(map (λ (e) `(a ([href ,(cdr e)]) ,(car e))) entries)))
-
-;; a full HTML page: head + site nav + the given body elements
-(define (render-html-page s title extra-head body-elements)
-  (embed-base-html title extra-head
-                   (list (render-nav (nav-entries s))
-                         `(main ([id "main"]) ,@body-elements))))
-
-;; a full HTML page for an article; info must carry the resolved 'references
-;; (added by the collect pass in lib/site.rkt)
-(define (render-page s art info)
-  (define rc (render-ctx html-renderers info))
-
-  (define (render-reference entry) ; entry is (key . formatted-text)
-    `(li ([id ,(cite-key->anchor-id (car entry))]) ,(cdr entry)))
-
-  (define toc
-    (let ([headings (doc-ref info 'headings)])
-      (if (null? headings)
-          '()
-          (list
-            `(nav ([class "toc"])
-                  (ul ,@(map (λ (h)
-                               `(li (a ([href ,(string-append "#" (heading-id h))])
-                                       ,@(render* rc (heading-content h)))))
-                             headings)))))))
-
-  (define references
-    (let ([refs (doc-ref info 'references)])
-      (if (null? refs)
-          '()
-          (list
-            `(section
-               (h2 "References")
-               (ol ,@(map render-reference refs)))))))
-
-  (render-html-page
-    s
-    (article-title art)
-    (doc-info->extra-head info)
-    (list
-      `(article
-         (h1 ,(article-title art))
-         (p ([class "date"]) ,(article-date art))
-         ,@toc
-         ,@(render-article-body info (article-body art))
-         ,@references))))
-
-;; a full HTML page for an authored standalone page (About, etc.)
-(define (render-standalone-page s sp)
-  (render-html-page s (standalone-page-title sp) '() (standalone-page-body sp)))
+;; inline content outside the body flow, e.g. heading text in the toc
+(define (render-inlines info inlines)
+  (render* (render-ctx html-renderers info) inlines))
 
 (provide (contract-out
            [render-article-body (-> hash? (listof block?) (listof xexpr/c))]
-           [render-html-page (-> site? string? (listof xexpr/c) (listof xexpr/c) xexpr/c)]
-           [render-page (-> site? article? hash? xexpr/c)]
-           [render-standalone-page (-> site? standalone-page? xexpr/c)]))
+           [render-inlines (-> hash? (listof inline?) (listof xexpr/c))]))

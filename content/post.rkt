@@ -1,11 +1,10 @@
 #lang racket/base
 
+;;;; discovers every post under content/posts/, keyed by file name as slug
+
 (require file/glob
          racket/path
-         racket/runtime-path
-         ycao-net/lib/output
-         ycao-net/lib/render
-         ycao-net/lib/site)
+         racket/runtime-path)
 
 (define-runtime-path posts-glob "posts/*.rkt")
 
@@ -17,11 +16,4 @@
     (cons (post-path->slug path)
           (dynamic-require path 'post))))
 
-(define (generate-post-pages s)
-  (map (λ (p)
-         (out-file-from-xml
-           (render-page s (site-post-art p) (site-post-info p))
-           (post-dest-path p)))
-       (site-posts s)))
-
-(provide all-posts generate-post-pages)
+(provide all-posts)

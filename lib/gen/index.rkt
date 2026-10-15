@@ -4,7 +4,7 @@
 
 (require ycao-net/lib/document
          ycao-net/lib/output
-         ycao-net/lib/render
+         ycao-net/lib/layout
          ycao-net/lib/site)
 
 (define (post-list-item p)

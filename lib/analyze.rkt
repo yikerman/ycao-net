@@ -87,14 +87,16 @@
             (λ (bs) (number-by-first-occurrence (collect-struct cite? bs) cite-key))))
 
 ;; amsmath-style equation numbering: number every display equation in document
-;; order, and map labels to those numbers so eqrefs resolve. Returns a pair
-;; (by-node . by-label) — the doc-local symbol table the renderer consults.
+;; order, and map labels to those numbers so eqrefs resolve. The eq-table is
+;; the doc-local symbol table the renderer consults.
+(struct eq-table (by-node by-label) #:transparent)
+
 (define eq-numbers-analysis
   (analysis 'eq-numbers
             (λ (bs)
               (for/fold ([by-node (hasheq)]
                          [by-label (hash)]
-                         #:result (cons by-node by-label))
+                         #:result (eq-table by-node by-label))
                         ([mb (in-list (collect-struct math-block? bs))]
                          [i (in-naturals 1)])
                 (values (hash-set by-node mb i)
@@ -109,6 +111,7 @@
         cite-numbers-analysis eq-numbers-analysis))
 
 (provide (struct-out analysis)
+         (struct-out eq-table)
          fold-doc node-children collect-struct number-by-first-occurrence
          (contract-out
            [analyze (-> (listof analysis?) (listof block?) hash?)]

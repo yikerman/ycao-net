@@ -5,11 +5,13 @@
          "content/config.rkt"
          "content/post.rkt"
          "content/pages.rkt"
-         "content/index.rkt"
-         "content/static.rkt"
-         "content/feed.rkt"
-         "content/sitemap.rkt"
          "content/bib.rkt"
+         "lib/gen/static.rkt"
+         "lib/gen/posts.rkt"
+         "lib/gen/pages.rkt"
+         "lib/gen/index.rkt"
+         "lib/gen/feed.rkt"
+         "lib/gen/sitemap.rkt"
          "lib/site.rkt"
          "lib/output.rkt")
 
