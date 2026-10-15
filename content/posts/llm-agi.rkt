@@ -3,7 +3,7 @@
 (require ycao-net/lib/markup)
 
 (define post
-  @article["LLM will NEVER be AGI: The Proof" "2024-08-20"]{
+  @article["[HAS ERRS] LLM will NEVER be AGI: The Proof" "2024-08-20"]{
     @para{
       The proof is trivial with a little help of a necessary condition of
       complexity theories. All LLM runs under the complexity of @math{O(n)},
