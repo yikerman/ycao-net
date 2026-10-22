@@ -16,7 +16,7 @@
         ("ds-review-1" . "Kassandra, \"Review for DEATH STRANDING DIRECTOR'S CUT,\" Steamcommunity.com, Oct. 20, 2025. https://steamcommunity.com/id/KassandraAlmightyEagleBearer/recommended/1850570/ (accessed Nov. 15, 2025).")
         ("ds-review-2" . "T. Ogilvie, \"Death Stranding Review,\" IGN, Nov. 01, 2019. https://www.ign.com/articles/2019/11/01/death-stranding-review (accessed Nov. 15, 2025).")
         ("ds-review-3" . "\"Death Stranding user reviews,\" Metacritic.com, 2019. https://www.metacritic.com/game/death-stranding/user-reviews/?platform=playstation-4 (accessed Nov. 15, 2025).")
-        ("ds-review-4" . "T. Sylvester, Designing games : a guide to engineering experiences. Sebastobpol, Calif: O'reilly, 2013.")
+        ("sylvesterDesigningGamesGuide2013" . "T. Sylvester, Designing games : a guide to engineering experiences. Sebastobpol, Calif: O'reilly, 2013.")
 
         ;;; by citation key and IEEE
         ("vaswaniAttentionAllYou2017" . "Vaswani, A., et al. \"Attention is all you need,\" in Advances in neural information processing systems, vol. 30, 2017.")
