@@ -65,7 +65,7 @@
     }
     @para{
       Some anecdotes may help but anyone done SE should see this immediately obvious so I'll just
-      be lazy here.
+      be lazy here (see Dijkstra@cite["dijkstraFoolishnessNaturalLanguage1978"]).
       It boils down to we don't actually fully understand our demand until we implement and
       iterate it. Funnily this is why we hire architects and product managers in the first place.
     }

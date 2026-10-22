@@ -34,6 +34,7 @@
         ("cormackReciprocalRankFusion2009" . "Cormack, Gordon V., Charles L. A. Clarke, and Stefan Buettcher. “Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods.” Proceedings of the 32nd International ACM SIGIR Conference on Research and Development in Information Retrieval (New York, NY, USA), SIGIR ’09, July 19, 2009, 758–59. https://doi.org/10.1145/1571941.1572114.")
         ("robertsonProbabilisticRelevance2009" . "Robertson, Stephen, and Hugo Zaragoza. “The Probabilistic Relevance Framework: BM25 and Beyond.” Foundations and Trends in Information Retrieval 3, no. 4 (2009): 333–89. https://doi.org/10.1561/1500000019.")
         ("russellMysticismLogicOther1917" . "B. Russell, Mysticism and logic, and other essays. London : G. Allen & Unwin, 1917. Accessed: Oct. 16, 2026. [Online]. Available: http://archive.org/details/mysticismlogicot00russ")
+        ("dijkstraFoolishnessNaturalLanguage1978" . "E. W. Dijkstra, “On the Foolishness of ‘Natural Language Programming,’” in Program Construction, International Summer School, Berlin, Heidelberg: Springer-Verlag, Jul. 1978, pp. 51–53.")
         ))
 
 (provide bib-db)
