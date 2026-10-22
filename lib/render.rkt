@@ -85,8 +85,11 @@
   (renderer img?
             (λ (n _rc)
               (define alt (img-alt n))
+              (define scale (img-scale n))
               `(figure
-                 (img ([src ,(img-url n)] ,@(if alt `([alt ,alt]) '())))
+                 (img ([src ,(img-url n)]
+                       ,@(if alt `([alt ,alt]) '())
+                       ,@(if scale `([style ,(format "--scale: ~a" (exact->inexact scale))]) '())))
                  ,@(if alt `((figcaption ,alt)) '())))))
 
 ;; un-numbered display math. AMS *display* environments (align, gather, …) are

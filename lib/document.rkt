@@ -27,7 +27,7 @@
 (struct code-block (lang code) #:transparent)
 (struct math-block (tex label) #:transparent) ; label is a string or #f
 (struct disp-math (tex) #:transparent) ; un-numbered display math (no \label/\eqref)
-(struct img (url alt) #:transparent) ; url + caption; alt is a string or #f
+(struct img (url alt scale) #:transparent) ; url + caption; alt is a string or #f; scale is a positive real or #f
 (struct quote-block (content) #:transparent) ; blockquote; content is inlines
 (struct list-block (ordered? items) #:transparent) ; items: (listof (listof inline?))
 (struct raw-html (html) #:transparent) ; verbatim HTML escape hatch; html is a string

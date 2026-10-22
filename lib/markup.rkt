@@ -82,10 +82,14 @@
 (define (eqref label)
   (ast:eqref label))
 
-;; a block figure; the optional description is both alt text and caption
+;; a block figure; the optional description is both alt text and caption.
+;; #:scale multiplies the default figure width (e.g. 0.5 for half size)
 ;; @img["/files/x.png"]{A caption}
-(define (img url . desc)
-  (ast:img url (and (pair? desc) (apply string-append desc))))
+;; @img["/files/x.png" #:scale 0.5]{A smaller one}
+(define (img url #:scale [scale #f] . desc)
+  (unless (or (not scale) (and (real? scale) (positive? scale)))
+    (raise-argument-error 'img "(or/c #f (and/c real? positive?))" scale))
+  (ast:img url (and (pair? desc) (apply string-append desc)) scale))
 
 ;; un-numbered display math; use @dmath|{...}| for \begin{align}/matrices etc.
 ;; @dmath{F = ma}

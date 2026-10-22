@@ -103,7 +103,7 @@ figure {
 
 figure img {
     display: block;
-    width: 90%;
+    width: calc(90% * var(--scale, 1));
     max-width: 100%;
     height: auto;
     margin: 0 auto;
