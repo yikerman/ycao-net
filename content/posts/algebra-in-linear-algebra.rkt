@@ -18,9 +18,10 @@
     @heading["examples"]{"Non-trivial" Linear Algebra}
     @para{
       A lower-division course usually approaches the subject through concrete computations and examples,
-      and we'll skip that part here. The important observation is that linear map appears in so many
-      different locations, and not only over real numbers, such as:
+      and we'll skip that part here. The important observation is that linear maps appear in many
+      different settings, and not only over real numbers, such as:
     }
+    @para{In the following examples, @math{a,b \in \mathbb{R}}.}
     @ul{
       @item{
         Limit:
@@ -30,20 +31,20 @@
       }
       @item{
         Integral:
-        @math{\int_0^1 : \{\text{all continuous real-valued functions on } [0,1]\} \to \mathbb{R}}
+        @math{\int_0^1 : \{\text{continuous real-valued functions}\} \to \mathbb{R}}
         @dmath{a\int_0^1 f(x)\,\mathrm{d}x + b\int_0^1 g(x)\,\mathrm{d}x
           = \int_0^1 (af(x) + bg(x))\,\mathrm{d}x}
       }
       @item{
         Differentiation:
-        @math{\frac{\mathrm{d}}{\mathrm{d}x} : \{\text{all differentiable real-valued functions on } (0,1)\}
-          \to \{\text{all real-valued functions on } (0,1)\}}
+        @math{\frac{\mathrm{d}}{\mathrm{d}x} : \{\text{differentiable real-valued functions}\}
+          \to \{\text{real-valued functions}\}}
         @dmath{a\frac{\mathrm{d}f}{\mathrm{d}x} + b\frac{\mathrm{d}g}{\mathrm{d}x}
           = \frac{\mathrm{d}}{\mathrm{d}x}(af + bg)}
       }
       @item{
         Expected value:
-        @math{\mathbb{E} : \{\text{all random variables with finite expectation on a fixed probability space}\}
+        @math{\mathbb{E} : \{\text{real-valued random variables}\}
           \to \mathbb{R}}
         @dmath{a\mathbb{E}[X] + b\mathbb{E}[Y] = \mathbb{E}[aX + bY]}
       }
@@ -52,7 +53,7 @@
     @para{
       Previously we only used @math{\mathbb{R}^n} as the vector space, but as shown by examples above 
       it can get pretty arbitrary, which is why we deseperately need to introduce linear algebra in 
-      the "algebra way", since we want to extract the common, convient tools manipulating them.
+      the "algebra way", since we want to extract the common, convient tools to manipulate them.
       We begin by defining "vector space", the foundation of linear algebra, more formally:
     }
     @para{
@@ -73,8 +74,8 @@
       \begin{aligned}
         \mathbf{u}+_V\mathbf{v} &= \mathbf{v}+_V\mathbf{u} && \text{(commutativity)} \\
         (\mathbf{u}+_V\mathbf{v})+_V\mathbf{w} &= \mathbf{u}+_V(\mathbf{v}+_V\mathbf{w}) && \text{(associativity)} \\
-        \mathbf{u}+_V\mathbf{0}_V &= \mathbf{u} && \text{(zero vector)} \\
-        \mathbf{u}+_V(-\mathbf{u}) &= \mathbf{0}_V && \text{(additive inverse)} \\
+        \mathbf{u}+_V\mathbf{0} &= \mathbf{u} && \text{(zero vector)} \\
+        \mathbf{u}+_V(-\mathbf{u}) &= \mathbf{0} && \text{(additive inverse)} \\
         a\times_V(b\times_V\mathbf{u}) &= (ab)\times_V\mathbf{u} && \text{(scalar multiplication)} \\
         1_F\times_V\mathbf{u} &= \mathbf{u} && \text{(scalar identity)} \\
         a\times_V(\mathbf{u}+_V\mathbf{v}) &= (a\times_V\mathbf{u})+_V(a\times_V\mathbf{v}) && \text{(distributivity over vector addition)} \\
@@ -85,12 +86,13 @@
       See @link["https://en.wikipedia.org/wiki/Vector_space"]{Wikipedia} for more properties and
       theorems. From now on, we assume we know basic vector space arithmetic.
     }
-    @heading["application"]{Put into Practice}
+    @heading["application-1"]{Putting Vec Space into Practice}
     @para{
       Let @math{\mathbf{A} \in \{\mathbb{R} \to \mathbb{R}\}^{n \times n}},
       @math{\mathbf{x}: \mathbb{R} \to \mathbb{R}^n}, and
-      @math{\mathbf{f}: \mathbb{R} \to \mathbb{R}^n}. All are functions of @math{t}.
-      Now let's look at an @math{n \times n} linear ODE system:
+      @math{\mathbf{f}: \mathbb{R} \to \mathbb{R}^n}. All are functions of @math{t} and behaves well
+      under differentiation.
+      Now let's look at a system of @math{n} first-order linear ODEs:
     }
     @dmath{\mathbf{x}'(t) = \mathbf{A}(t)\mathbf{x}(t) + \mathbf{f}(t)}
     @para{
@@ -108,44 +110,45 @@
     @para{
       A subset @math{B \subseteq V} is a basis over @math{F} if it spans @math{V} and is
       linearly independent. Write @math{\sum^V} for summation using @math{+_V}, with empty sum
-      @math{\mathbf{0}_V}.
+      @math{\mathbf{0}}.
     }
     @ul{
       @item{
-        Spanning: every @math{\mathbf{v}\in V} can be written as a linear combination of @math{b \in S \subseteq B}
-        where @math{S} is finite.
+        Spanning:
         @dmath|{
           \begin{gathered}
-            \forall\mathbf{v}\in V,\quad
-            \exists S\subseteq B,\ |S|<\infty,\quad
-            \exists(a_{\mathbf{b}})_{\mathbf{b}\in S}\in F^S:\\
-            \mathbf{v}=\sum_{\mathbf{b}\in S}^{V}(a_{\mathbf{b}}\times_V\mathbf{b}).
+            \forall\mathbf{v}\in V,\quad \exists m\in\mathbb{Z}_{\ge0},\\
+            \exists\text{ distinct }\mathbf{b}_1,\ldots,\mathbf{b}_m\in B,\quad
+            \exists a_1,\ldots,a_m\in F:\\
+            \mathbf{v}=\mathop{\sum\nolimits^{V}}\limits_{i=1}^{m}(a_i\times_V\mathbf{b}_i).
           \end{gathered}
         }|
       }
       @item{
-        Linear independence: a linear combination of @math{\mathbf{b} \in S \subseteq B},
-        where @math{S} is finite, equals @math{\mathbf{0}_V} only when all coefficients are zero.
+        Linear independence:
         @dmath|{
           \begin{gathered}
-            \forall S\subseteq B,\ |S|<\infty,\quad
-            \forall(a_{\mathbf{b}})_{\mathbf{b}\in S}\in F^S:\\
-            \sum_{\mathbf{b}\in S}^{V}(a_{\mathbf{b}}\times_V\mathbf{b})=\mathbf{0}_V
+            \forall m\in\mathbb{Z}_{\ge1},\quad
+            \forall\text{ distinct }\mathbf{b}_1,\ldots,\mathbf{b}_m\in B,\quad
+            \forall a_1,\ldots,a_m\in F:\\
+            \mathop{\sum\nolimits^{V}}\limits_{i=1}^{m}(a_i\times_V\mathbf{b}_i)=\mathbf{0}
             \quad\Longrightarrow\quad
-            \forall\mathbf{b}\in S,\ a_{\mathbf{b}}=0.
+            a_1=\cdots=a_m=0.
           \end{gathered}
         }|
       }
     }
     @para{
-      Every vector has unique basis coefficients, only finitely many of which are nonzero.
+      One caveat compared with a lower-division textbook is that the basis @math{B}
+      itself may be infinite, but every @math{\mathbf{v}\in V} must still be a finite
+      linear combination of elements of @math{B}. If we want to allow infinite sums,
+      we need additional structure to define convergence. This leads to other notions
+      of basis in "functional analysis", which we will not explore here.
     }
-    @para{
-      Sometimes a basis is easy to write out. For @math{\mathbb{R}^n}, we have the standard basis
-      @math{\mathbf{e}_1,\ldots,\mathbf{e}_n}, where @math{\mathbf{e}_i} has a @math{1} in position
-      @math{i} and zeros elsewhere. For real polynomials, @math{\{1,t,t^2,\ldots\}} is a basis:
-      every polynomial is a finite sum of these powers, with unique real coefficients.
+    @heading["linear-maps"]{Linear Maps and Matrices}
+    @para{TODO
     }
+    @heading["application-2"]{Putting Basis into Practice}
     @para{TODO
     }
   }
