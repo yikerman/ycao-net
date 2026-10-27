@@ -31,9 +31,17 @@ jobs:
             --match '*.svg' \
             --match '*.xml'
 
+      - name: Install image optimizers
+        run: |
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/oxipng.deb" \
+            https://github.com/oxipng/oxipng/releases/download/v10.2.1/oxipng_10.2.1-1_amd64.deb
+          echo "4c3e7440c3ebf94b0d5a67d3add25b9a40897c7f14678ecdb5db3c7b77ff816f  $RUNNER_TEMP/oxipng.deb" | sha256sum --check
           sudo apt-get update
-          sudo apt-get install -y jpegoptim optipng
-          find dist -type f -iname '*.png' -exec optipng -quiet -o2 {} +
+          sudo apt-get install -y jpegoptim "$RUNNER_TEMP/oxipng.deb"
+      - name: Optimize PNG images
+        run: oxipng -r -o 2 --strip safe dist
+      - name: Optimize JPEG images
+        run: |
           find dist -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) \
             -exec jpegoptim --strip-all --all-progressive {} +
       - name: Deploy to CF Pages
