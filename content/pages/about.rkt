@@ -13,6 +13,11 @@
     (list
       `(article
          (h1 "About")
+         (img ([src "/avatar.png"]
+               [alt "Yi Cao's avatar"]
+               [width "256"]
+               [height "256"]
+               [style "max-width: 100%; height: auto;"]))
          (h2 "Sugar makes me happy")
          (p "I'm Yi Cao (pronounced E Tsao), a University of California Irvine student hacking around.")
          (h2 "Find me")
