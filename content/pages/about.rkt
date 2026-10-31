@@ -19,14 +19,15 @@
                [height "256"]
                [style "max-width: 100%; height: auto;"]))
          (h2 "Sugar makes me happy")
-         (p "I'm Yi Cao (pronounced E Tsao), a University of California Irvine student hacking around.")
+         (p "I'm Yi Cao (pronounced E Tsao), a University of California, Irvine student majoring Applied & Computational Mathematics.")
+         (p "I very much enjoy the generalized abstract nonsense part of Math and also love to put them into practices!")
          (h2 "Find me")
          (ul
            (li "Mail: " (a ([href "mailto:yi@ycao.net"]) "yi@ycao.net")
                " (PGP key: " (a ([href "/pgp.html"]) (code "559FA8122D3FD108")) ")")
            (li "GitHub: " (a ([href "https://github.com/yikerman"]) "@yikerman")))
          (h2 "AI Generated Content")
-         (p "Unless otherwise noted, all content on this site is written by me without the assistance of AI. Sometimes AI is employed for research or proofreading but the final content is my own, and I claim full responsibility for it.")
+         (p "Unless otherwise noted, all content on this site is written by me. Sometimes AI is employed for research or proofreading but the final content is my own, and I claim full responsibility for it.")
          (p "Also F You to whichever for-profit company scraping this site for training data.")
          (h2 "License")
          (p (code "Yi's Blog") " by Yi Cao is licensed under "
