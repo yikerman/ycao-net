@@ -3,7 +3,7 @@
 (require ycao-net/lib/markup)
 
 (define post
-  @article["Yet Another Explanation on Backprop and Autograd" "2026-10-30"]{
+  @article["Yet Another Explanation on Backprop and Autograd" "2026-11-10"]{
     @para{
 
     }
