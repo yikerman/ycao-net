@@ -83,9 +83,8 @@
       similar raw-weight-poking ability. I @link["https://github.com/yikerman/llm-rw-weight-extended-test/blob/master/report/replication.pdf"]{did a quick test}
       on the SOTA models in terms of general intelligence as measured by Artificial Analysis, assuming that the
       evaluation is fair. Interestingly, among frontier models, @it{Kimi K3.1 Pro} is the outlier
-      that does the task at a mediocre level while it has roughly the same AA score as @it{Fable 5.1}. Additionally,
-      while @it{6.1 Sol} is arguably a weaker model, it is able to do this task better than Kimi. It is
-      either that it is an emergent ability and Kimi is just a bad model benchmaxxing, or Google,
+      that does the task at a mediocre level while it has roughly the same AA score as @it{Fable 5.1}.
+      It is either that it is an emergent ability and Kimi is just a bad model benchmaxxing, or Google,
       OpenAI and Anthropic specifically fine-tuned during their post-training and experimented with
       related ideas while Moonshot, being a Chinese model company, just has different points of emphasis
       and didn't cater for this task.
