@@ -90,7 +90,7 @@
       and didn't cater for this task.
     }
     @para{
-      Disclaimer: substantial research work on prior art was assisted by an LLM.
+      Note: substantial research work on past literature was assisted by an LLM.
     }
   })
 
