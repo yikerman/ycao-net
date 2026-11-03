@@ -27,12 +27,11 @@
                " (PGP key: " (a ([href "/pgp.html"]) (code "559FA8122D3FD108")) ")")
            (li "GitHub: " (a ([href "https://github.com/yikerman"]) "@yikerman")))
          (h2 "AI Generated Content")
-         (p "Unless otherwise noted, all content on this site is written by me. Sometimes AI is employed for research or proofreading but the final content is my own, and I claim full responsibility for it.")
-         (p "Also F You to whichever for-profit company scraping this site for training data.")
+         (p "Unless otherwise noted, all content on this site is written by me. Also F You to whichever for-profit company scraping this site for training data.")
          (h2 "License")
          (p (code "Yi's Blog") " by Yi Cao is licensed under "
             (a ([href "https://creativecommons.org/licenses/by-sa/4.0/"]) "CC BY-SA 4.0")
             ".")
-         (p "Source code can be found at " (a [(href "https://github.com/yikerman/ycao-net")] "https://github.com/yikerman/ycao-net") ".")))))
+         (p "Source code of the blog can be found at " (a [(href "https://github.com/yikerman/ycao-net")] "https://github.com/yikerman/ycao-net") ", proudly using a custom Racket generator.")))))
 
 (provide about-page)
