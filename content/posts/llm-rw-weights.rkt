@@ -3,7 +3,7 @@
 (require ycao-net/lib/markup)
 
 (define post
-  @article["How Did the LLM Edit the Weights?" "2026-11-02"]{
+  @article["Thoughts on LLMs Editing Weights: What’s New?" "2026-11-02"]{
     @para{
       The results shown in @link["https://rikiyat.github.io/blog/weight-space-programming/"]{@it{LLMs can natively read & write neural network weights}}
       are quite surprising. It indeed has some overstatements like "an LLM improved the math ability of a small model".
