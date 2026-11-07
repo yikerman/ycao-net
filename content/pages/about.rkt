@@ -32,6 +32,16 @@
          (p (code "Yi's Blog") " by Yi Cao is licensed under "
             (a ([href "https://creativecommons.org/licenses/by-sa/4.0/"]) "CC BY-SA 4.0")
             ".")
-         (p "Source code of the blog can be found at " (a [(href "https://github.com/yikerman/ycao-net")] "https://github.com/yikerman/ycao-net") ", proudly using a custom Racket generator.")))))
+         (p "Source code of the blog can be found at " (a [(href "https://github.com/yikerman/ycao-net")] "https://github.com/yikerman/ycao-net") ", proudly using a custom Racket generator.")
+         (footer ([class "about-stickers"] [aria-label "Licensing, standards, and support"])
+           (a ([href "https://creativecommons.org/licenses/by-sa/4.0/"])
+              (img ([src "/cc-by-sa.svg"]
+                    [alt "Creative Commons Attribution-ShareAlike 4.0"])))
+           (a ([href "https://kde.org/donate/"])
+              (img ([src "/kde-donor-konqi.png"]
+                    [alt "KDE Supporter"])))
+           (a ([href "https://www.racket-lang.org/"])
+              (img ([src "/racket-logo.svg"] [alt "Made with Racket"])))
+         )))))
 
 (provide about-page)

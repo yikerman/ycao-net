@@ -79,6 +79,22 @@ blockquote {
     margin-right: 2em;
 }
 
+.about-stickers {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+}
+
+.about-stickers img {
+    display: block;
+    height: 48px;
+    width: auto;
+}
+
 /* math */
 
 .equation {
