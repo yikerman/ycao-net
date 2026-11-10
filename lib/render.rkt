@@ -54,7 +54,7 @@
               (define cite-num (hash-ref
                                  (doc-ref (render-ctx-info rc) 'cite-numbers)
                                  (cite-key n)))
-              `(sup (a ([href ,(cite-key->anchor-str (cite-key n))]) ,(format "[~a]" cite-num))))))
+              `(span " " (a ([href ,(cite-key->anchor-str (cite-key n))]) ,(format "[~a]" cite-num))))))
 (define math-renderer ; \(math\) triggers mathjax
   (renderer math? (λ (n _rc) `(span ,(format "\\(~a\\)" (math-tex n))))))
 (define eqref-renderer

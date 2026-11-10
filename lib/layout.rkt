@@ -98,7 +98,7 @@
         (list
           `(section
              (h2 "References")
-             (ol ,@(map render-reference refs))))))
+             (ol ([class "references"]) ,@(map render-reference refs))))))
 
   (render-html-page
     s

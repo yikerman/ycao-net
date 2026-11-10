@@ -67,7 +67,7 @@
 (define (link url . content)
   (ast:link url (coerce-inlines content)))
 
-;; a numbered citation to a key in bib.rkt; renders as a [n] superscript
+;; a numbered citation to a key in bib.rkt; renders as a baseline [n] with preceding space
 ;; @cite["vaswaniAttentionAllYou2017"]
 (define (cite key)
   (ast:cite key))

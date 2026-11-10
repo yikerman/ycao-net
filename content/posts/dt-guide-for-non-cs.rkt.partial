@@ -1,0 +1,12 @@
+#lang at-exp racket/base
+
+(require ycao-net/lib/markup)
+
+(define post
+  @article["Darktable Guide for Non-Scientists" "2026-11-14"]{
+    @para{
+      According to Aurelien's survey.
+    }  
+  })
+
+(provide post)
