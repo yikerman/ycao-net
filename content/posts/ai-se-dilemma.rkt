@@ -75,6 +75,9 @@
       insightful math abstractions, nor have they decide autonomously one abstraction is better
       than another given some situation. 
     }
+    @para{
+      EDIT 2026-09-11: Just BTW my stance on math is more than Intuitionism
+    }
   }
 )
 
