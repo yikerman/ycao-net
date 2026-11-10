@@ -21,7 +21,6 @@
 (define-runtime-path posts-dir "content/posts")
 (define-runtime-path translations-dir "content/translations")
 
-;; prompt templates; ~a is the post's source
 (define prompt-template-en->cn #<<EOF
 将下面的博客文章从英文翻译成简体中文。它是一个使用 at-exp 标记的 Racket 源文件。
 只翻译供人阅读的文字，其余内容一律原样保留，包括所有 @ 形式的名称、标题 id、
@@ -29,6 +28,7 @@
 在 @article 形式中，于日期之后添加 #:lang "zh"。
 只回复翻译后的完整文件，不要用 Markdown 代码块包裹。
 翻译在**不曲解原意的情况下**尽量避免汉语欧化。
+对于难以翻译的专有名词使用括号：（Original Proper Noun）
 
 ~a
 EOF
