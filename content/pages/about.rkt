@@ -20,7 +20,7 @@
                [style "max-width: 100%; height: auto;"]))
          (h2 "Sugar makes me happy")
          (p "I'm Yi Cao (pronounced E Tsao), a University of California, Irvine student majoring Applied & Computational Mathematics.")
-         (p "If I were to describe myself, I am the kind of people that possesses, informally, " (a ([href "https://www.gutenberg.org/files/5116/5116-h/5116-h.htm#link2H_4_0003:~:text=I%20will,Sceptical%2E"]) "fear of missing out the truth") ".")
+         (p "If I were to describe myself, I am the kind of people that possesses, informally, " (a ([href "https://www.gutenberg.org/files/5116/5116-h/5116-h.htm#link2H_4_0003:~:text=I%20will,Sceptical%2E"]) "a fear of missing out the truth") ".")
          (blockquote "Wir müssen wissen.")
          (h2 "Find me")
          (ul
