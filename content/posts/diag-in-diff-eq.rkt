@@ -19,11 +19,10 @@
     @heading["examples"]{"Non-trivial" Linear Algebra}
     @para{
       A lower-division course usually approaches the subject through concrete computations and examples
-      in @math{\mathbb{R}^n}, and we'll skip that part here. In a formal algebra course, you learn eight axioms 
-      that define a @bold{vector space} over a field (usually @math{\mathbb{R}} or @math{\mathbb{C}}). 
-      Rather than listing all those axioms here—see @link["https://en.wikipedia.org/wiki/Vector_space"]{Wikipedia} 
-      if you want the formal rules—the core idea is simple: @bold{any collection of objects that you can 
-      sensibly add together and scale by numbers is a vector space.}
+      in @math{\mathbb{R}^n}, and we'll skip that part here. In a formal algebra course, linear algebra
+      is all about @link["https://en.wikipedia.org/wiki/Vector_space"]{vector space} that can be defined
+      on arbitrary structures (see below) and arbitrary fields (instead of @math{\mathbb{R}}, but still
+      mainly @math{\mathbb{R}} and @math{\mathbb{C}} in practice).
     }
     @para{
       Previously we only used @math{\mathbb{R}^n} as our vector space, but under this general view, 
@@ -56,20 +55,19 @@
     }
     @para{
       Any @math{T} s.t. the form of @math{T(a\mathbf{u} + b\mathbf{v}) = aT(\mathbf{u}) + bT(\mathbf{v})}
-      if known as a linear map
+      is known as a linear map, where @math{\mathbf{u}} and @math{\mathbf{v}} live in the vector space
+      and @math{a} and @math{b} live in the field.
     }
     @heading["eigenfunctions"]{Differentiation and Eigenfunctions}
     @para{
-      Because functions form a vector space and differentiation @math{D = \frac{\mathrm{d}}{\mathrm{d}t}} 
-      is a linear map, we can extract our familiar tools from linear algebra and apply them directly to calculus. 
-      For instance, what are the @bold{eigenvectors} of @math{D}? They are nonzero functions that only get scaled 
-      when differentiated:
+      Without going too much into the rigorous and formal details, by that differentiation is a linear
+      operator, a natural thing to ask is "what is its eigenvector and eigenfunction"?
     }
-    @dmath{D(x) = \lambda x \quad\Longleftrightarrow\quad x'(t) = \lambda x(t) \quad\Longrightarrow\quad x(t) = c e^{\lambda t}.}
+    @dmath{D(x) = \lambda x \quad\Longleftrightarrow\quad x'(t) = \lambda x(t) \quad\Longrightarrow\quad x(t) = C e^{\lambda t}.}
     @para{
-      Exponential functions @math{e^{\lambda t}} are literally the eigenvectors (often called @bold{eigenfunctions}) 
-      of the derivative operator! This is not a coincidence; it is the exact reason exponentials show up 
-      everywhere when solving linear differential equations.
+      Exponential functions @math{e^{\lambda t}} are literally the eigenvectors (often called @it{eigenfunctions}).
+      A nice way to think about it is that (I) we construct it and inspect it indeed is an eigenfunction;
+      (II) by Picard's Theorem, there are no more solutions.
     }
 
     @heading["coupled-systems"]{Coupled ODEs and Why We Want Diagonalization}
@@ -94,16 +92,14 @@
       \begin{cases}u_1' = -u_1,\\ u_2' = 6u_2.\end{cases}
     }|
     @para{
-      In a diagonal system, the variables don't interact at all! Each row is just the eigenvalue equation 
-      for @math{D}, so we could immediately read off @math{u_1(t) = c_1 e^{-t}} and @math{u_2(t) = c_2 e^{6t}}. 
-      This motivates using @bold{diagonalization} to change coordinates and decouple the system.
+      In a diagonal system, since the variables are decoupled, it reduces to the previously discussed
+      single variable case.
     }
-
-    @heading["diagonalization"]{Solving the System via Diagonalization}
     @para{
-      Recall from ordinary linear algebra that choosing a new basis changes the matrix representation of a 
-      linear map. Specifically, if @math{\mathbf{A}} has enough linearly independent eigenvectors, we can 
-      diagonalize it as @math{\mathbf{A} = \mathbf{P}\mathbf{M}\mathbf{P}^{-1}}, where @math{\mathbf{M}} is the 
+      Recall from "ordinary" linear algebra that we can translate a matrix, linear combination in
+      the language of basis coefficients, into another basis system, and if the new basis is an eigenbasis,
+      the matrix is a diagonal matrix. Specifically, if @math{\mathbf{A}} has enough linearly independent eigenvectors, we can 
+      diagonalize it as @math{\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}}, where @math{\mathbf{D}} is the 
       diagonal matrix of eigenvalues and @math{\mathbf{P}} has the corresponding eigenvectors as columns.
     }
     @para{
@@ -120,26 +116,26 @@
       \mathbf{v}_2 = \begin{bmatrix}1\\\frac{1}{3}\end{bmatrix}
       \quad\Longrightarrow\quad
       \mathbf{P} = \begin{bmatrix}1&1\\-2&\frac{1}{3}\end{bmatrix},\quad
-      \mathbf{M} = \begin{bmatrix}-1&0\\0&6\end{bmatrix}.
+      \mathbf{D} = \begin{bmatrix}-1&0\\0&6\end{bmatrix}.
     }|
     @para{
-      Now substitute @math{\mathbf{A} = \mathbf{P}\mathbf{M}\mathbf{P}^{-1}} into @math{\mathbf{x}' = \mathbf{A}\mathbf{x}} 
+      Now substitute @math{\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}} into @math{\mathbf{x}' = \mathbf{A}\mathbf{x}} 
       and multiply both sides on the left by @math{\mathbf{P}^{-1}}:
     }
     @dmath|{
-      \mathbf{x}' = \mathbf{P}\mathbf{M}\mathbf{P}^{-1}\mathbf{x}
+      \mathbf{x}' = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}\mathbf{x}
       \quad\Longleftrightarrow\quad
-      \mathbf{P}^{-1}\mathbf{x}' = \mathbf{M}(\mathbf{P}^{-1}\mathbf{x}).
+      \mathbf{P}^{-1}\mathbf{x}' = \mathbf{D}(\mathbf{P}^{-1}\mathbf{x}).
     }|
     @para{
-      Define @math{\mathbf{u}(t) = \mathbf{P}^{-1}\mathbf{x}(t)}, which represents @math{\mathbf{x}(t)} in the 
+      Define @math{\mathbf{u} = \mathbf{P}^{-1}\mathbf{x}}, which represents @math{\mathbf{x}} in the 
       eigenvector basis. Since @math{\mathbf{P}} is constant, differentiation commutes with @math{\mathbf{P}^{-1}}, 
-      meaning @math{\mathbf{u}' = \mathbf{P}^{-1}\mathbf{x}'}.(Note that this requires a constant @math{\mathbf{A}}; 
-      for a time-varying @math{\mathbf{A}(t)}, @math{\mathbf{P}(t)} would also vary with @math{t} and pick up extra 
-      product-rule terms.) Our coupled ODE turns into the decoupled system:
+      that is @math{\mathbf{u}' = \mathbf{P}^{-1}\mathbf{x}'}. The coupled ODE turns into the decoupled system:
     }
     @dmath|{
-      \mathbf{u}' = \mathbf{M}\mathbf{u}
+      \mathbf{u}' = \mathbf{D}\mathbf{u}
+      \quad\Longleftrightarrow\quad
+      \begin{cases}u_1' = -u_1,\\ u_2' = 6u_2\end{cases}
       \quad\Longrightarrow\quad
       \mathbf{u}(t) = \begin{bmatrix}c_1 e^{-t} \\ c_2 e^{6t}\end{bmatrix}.
     }|
@@ -150,49 +146,9 @@
       \mathbf{x}(t) = \begin{bmatrix}1&1\\-2&\frac{1}{3}\end{bmatrix}\begin{bmatrix}c_1 e^{-t} \\ c_2 e^{6t}\end{bmatrix}
       = c_1 e^{-t}\begin{bmatrix}1\\-2\end{bmatrix} + c_2 e^{6t}\begin{bmatrix}1\\\frac{1}{3}\end{bmatrix}.
     }|
-
-    @heading["solution-space"]{Basis and Coordinates in the Solution Space}
     @para{
-      Let's step back and view this result through the "algebra" lens. Let @math{S} be the solution space 
-      of @math{\mathbf{x}' = \mathbf{A}\mathbf{x}}. Because @math{D} and @math{\mathbf{A}} are linear, any linear 
-      combination of solutions is still a solution, so @math{S} is a subspace of differentiable functions.
-    }
-    @para{
-      Notice our two building-block solutions:
-    }
-    @dmath|{
-      \mathbf{x}_1(t) = e^{-t}\begin{bmatrix}1\\-2\end{bmatrix},\qquad
-      \mathbf{x}_2(t) = e^{6t}\begin{bmatrix}1\\\frac{1}{3}\end{bmatrix}.
-    }|
-    @para{
-      Existence and uniqueness for linear ODEs tells us that every initial value @math{\mathbf{x}(0) \in \mathbb{R}^2} 
-      determines a unique solution in @math{S}. In algebraic terms, evaluating a solution at @math{t = 0} 
-      (@math{\mathbf{x} \mapsto \mathbf{x}(0)}) is a linear bijection between @math{S} and @math{\mathbb{R}^2}, 
-      so @math{\dim S = 2}. Since @math{\mathbf{x}_1(0)} and @math{\mathbf{x}_2(0)} are linearly independent, 
-      @math{B = (\mathbf{x}_1, \mathbf{x}_2)} forms a @bold{basis} of the function space @math{S}!
-    }
-    @para{
-      In this basis @math{B}, a whole function @math{\mathbf{x} = c_1\mathbf{x}_1 + c_2\mathbf{x}_2} is represented 
-      simply by its constant coordinate column @math{[\mathbf{x}]_B = \begin{bmatrix}c_1\\c_2\end{bmatrix}}. 
-      Differentiation @math{D: S \to S} acts on these coordinates via the diagonal matrix @math{\mathbf{M}}:
-    }
-    @dmath|{
-      [D\mathbf{x}]_B = \mathbf{M}[\mathbf{x}]_B = \begin{bmatrix}-1&0\\0&6\end{bmatrix}\begin{bmatrix}c_1\\c_2\end{bmatrix} = \begin{bmatrix}-c_1\\6c_2\end{bmatrix}.
-    }|
-    @para{
-      And solving an initial value problem is nothing more than finding the coordinates @math{[\mathbf{x}]_B} 
-      from @math{t = 0}:
-    }
-    @dmath|{
-      \mathbf{x}(0)=\begin{bmatrix}1\\7\end{bmatrix}
-      \quad\Longrightarrow\quad
-      \begin{bmatrix}1&1\\-2&\frac13\end{bmatrix}\begin{bmatrix}c_1\\c_2\end{bmatrix}
-      =\begin{bmatrix}1\\7\end{bmatrix}
-      \quad\Longrightarrow\quad c_1=-\frac{20}{7},\quad c_2=\frac{27}{7}.
-    }|
-    @para{
-      Once we generalize "vectors" from number columns to functions, the mystery vanishes: diagonalizing 
-      @math{\mathbf{A}} finds an eigenfunction basis for the solution space, turning calculus into pure algebra.
+      Because @math{D} and @math{\mathbf{A}} are linear, any linear combination of solutions is still
+      a solution as proven in the course.
     }
   }
 )

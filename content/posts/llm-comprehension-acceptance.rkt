@@ -5,7 +5,7 @@
 ;; more skin in the game => normative agency?????
 
 (define post
-  @article["We Dislike LLM Output, not Because of Comprehension" "2026-11-08"]{
+  @article["We Dislike LLM Output, Not Because of Comprehension" "2026-11-08"]{
     @para{
       While LLMs till now still @link["/posts/ai-se-dilemma.html"]{possess significantly different observable (as in functionalism) output patterns from humans},
       do note that (I) Humans slop and hallucinate from time to time. We have seen countless 
@@ -57,7 +57,7 @@
     }
     @para{
       Additionally, consider pharmacology, in which one might argue that medicine has long relied on
-      empirically effective drugs. Pharmacology actually faces the same dilemma as in LLM use. 
+      empirically effective drugs. Pharmacology actually faces the same dilemma as in LLM use. Observe pharmacology's pragmatism trade-off:
       A lot of medicine, while not fully understood end-to-end, is still made partially mechanistically
       decomposable (e.g., AstraZeneca turns to the 5R Framework@cite["morganImpactFivedimensionalFramework2018"]),
       on top of which strict clinical regulation and institutional liability shift the @it{skin in the game} onto the pharmaceutical companies and prescribing doctors.
