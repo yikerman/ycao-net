@@ -13,7 +13,8 @@
       as much as possible. However, for whatever reason, "algebra" linear algebra is an elective course for
       a lot of STEM majors, and a lot of engineers or even math people don't get any insights when
       encountering it. This article tries to bridge the gap and assumes prior study of "ordinary" linear
-      algebra.
+      algebra. There are, of course, much more nuances than this essay, and you really should take the upper-div
+      linear algebra lecture just for the fun of it.
     }
 
     @heading["examples"]{"Non-trivial" Linear Algebra}
