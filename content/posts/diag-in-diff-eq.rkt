@@ -67,8 +67,8 @@
     @dmath{D(x) = \lambda x \quad\Longleftrightarrow\quad x'(t) = \lambda x(t) \quad\Longrightarrow\quad x(t) = C e^{\lambda t}.}
     @para{
       Exponential functions @math{e^{\lambda t}} are literally the eigenvectors (often called @it{eigenfunctions}).
-      A nice way to think about it is that (I) we construct it and inspect it indeed is an eigenfunction;
-      (II) by Picard's Theorem, there are no more solutions.
+      A nice way to think about it is that (i) we construct it and inspect it indeed is an eigenfunction;
+      (ii) by Picard's Theorem, there are no more solutions.
     }
 
     @heading["coupled-systems"]{Coupled ODEs and Why We Want Diagonalization}

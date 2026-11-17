@@ -8,8 +8,8 @@
   @article["We Dislike LLM Output, Not Because of Comprehension" "2026-11-08"]{
     @para{
       While LLMs till now still @link["/posts/ai-se-dilemma.html"]{possess significantly different observable (as in functionalism) output patterns from humans},
-      do note that (I) Humans slop and hallucinate from time to time. We have seen countless 
-      shitshows emitted by our dearest co-workers; (II) As in the last paragraph of my linked post, @it{"One can definitely argue that 'theoretically LLMs can do whichever thing human is doing'"}.
+      do note that (i) Humans slop and hallucinate from time to time. We have seen countless 
+      shitshows emitted by our dearest co-workers; (ii) As in the last paragraph of my linked post, @it{"One can definitely argue that 'theoretically LLMs can do whichever thing human is doing'"}.
       This is, of course, debatable but hard and non-trivial, but we cannot deny that LLMs are already
       showing superhuman behaviors and excel in various (honestly mainly math) fields. But there is
       still more to argue for why we should not just hand everything over to LLMs.

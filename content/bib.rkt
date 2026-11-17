@@ -19,6 +19,8 @@
         ("sylvesterDesigningGamesGuide2013" . "T. Sylvester, Designing games : a guide to engineering experiences. Sebastobpol, Calif: O'reilly, 2013.")
 
         ;;; by citation key and IEEE
+        ("zouSegmentEverythingEverywhere2023" . "X. Zou et al., “Segment everything everywhere all at once,” in Adv. Neural Inf. Process. Syst., vol. 36, 2023, pp. 19769–19782, doi: 10.5555/3666122.3666990.")
+        ("acesSystemOverview" . "Academy of Motion Picture Arts and Sciences, “System Overview,” ACES Documentation. Accessed: Nov. 16, 2026. [Online]. Available: https://docs.acescentral.com/background/overview/")
         ("vaswaniAttentionAllYou2017" . "Vaswani, A., et al. \"Attention is all you need,\" in Advances in neural information processing systems, vol. 30, 2017.")
         ("radfordImprovingLanguageUnderstanding2018" . "A. Radford, K. Narasimhan, T. Salimans, and I. Sutskever, \"Improving language understanding by generative pre-training,\" OpenAI, San Francisco, CA, USA, Tech. Rep., 2018.")
         ("kolesnikovImageWorth16x162021" . "A. Kolesnikov et al., \"An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale,\" in Proc. Int. Conf. Learn. Represent. (ICLR), 2021.")
