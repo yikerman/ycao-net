@@ -147,8 +147,8 @@
       output transform configured independently of the grade.
     }
     @para{
-      Note: it's a bit unconvincing for me to write this up - since I am also a science people. 
-      Probably get some artists' eye on this post?
+      Note: it's a bit unconvincing for me to write this up - since I am also a science people, and I 
+      clearly slipped some PL ideas here... Probably get some artists' eye on this post?
     }
   })
 
