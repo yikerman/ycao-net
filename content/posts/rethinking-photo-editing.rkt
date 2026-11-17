@@ -89,8 +89,8 @@
       masking shenanigans.
     }
     @para{
-      The first stage is @it{restoration}: establishing the photographic starting point
-      for subsequent creative adjustments. It includes purely objective capture-related processing such
+      @bold{The first stage is @it{restoration}: establishing the photographic starting point
+      for subsequent creative adjustments.} It includes purely objective capture-related processing such
       as demosaicing and lens correction, alongside subjective decisions such as overall exposure
       and white balance, which is put here for, consider these scenes: (i) a night view (ii) a sunset
       shot. It would be irresponsible to assume a middle grey auto-exposure or grey world auto-wb.
@@ -102,7 +102,7 @@
       parametric masks, forcing users to revisit edits they have already made.
     }
     @para{
-      Second stage is @it{creative adjustments}. Inspect what an artist may demand: "make this face brighter".
+      @bold{Second stage is @it{creative adjustments}.} Inspect what an artist may demand: "make this face brighter".
       It specifies both a change and a region. Creative editing can therefore be organized as a collection
       of adjustments, each describing what to change and where to apply it. Many specialized controls 
       can fit into this generalized model: e.g. traditional "shadow" "midtone" "highlight" tonal settings
@@ -136,7 +136,7 @@
       model remains open.
     }
     @para{
-      The final stage is @it{output rendering}. The problem is that even before a delivery medium is chosen,
+      @bold{The final stage is @it{output rendering}.} The problem is that even before a delivery medium is chosen,
       let it be sRGB SDR or P3 HDR or some printing, etc. which are mostly trivial to proof to,
       editing already requires an output rendering. The editing display has a finite luminance
       range and color gamut, so the working image must be rendered within those limits. What the photographer
